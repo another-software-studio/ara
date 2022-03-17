@@ -1,7 +1,7 @@
 set(CORE_HEADERS ../include/core/core.h)
 set(LOGG_HEADERS ../include/logger/logger.h)
 
-add_library(core   core/core.cc          ${CORE_HEADERS})
+add_library(core   core/core.cc     ${CORE_HEADERS})
 add_library(logger logger/logger.cc ${LOGG_HEADERS})
 
 target_include_directories(core PUBLIC ../include/core)
@@ -9,4 +9,11 @@ target_compile_features(core    PUBLIC cxx_std_17)
 
 target_include_directories(logger PUBLIC ../include/logger)
 target_compile_features(logger    PUBLIC cxx_std_17)
+
+target_link_libraries(core PUBLIC logger)
+
+
+find_package(Boost 1.78.0 COMPONENTS boost_beast) 
+target_include_directories(core PUBLIC ${Boost_INCLUDE_DIRS}) 
+target_link_libraries(core      PUBLIC ${Boost_LIBRARIES})
 

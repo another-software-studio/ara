@@ -8,12 +8,11 @@ namespace ara {
 
 class App {
 public:
-    App() = delete;
-    App(unsigned int, std::string);
+    App() = default;
+
+    int Run(const char*, short unsigned);
 
 private:
-    int m_port;
-    std::string m_host;
 };
 
 }
