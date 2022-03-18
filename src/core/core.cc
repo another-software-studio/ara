@@ -1,3 +1,4 @@
+#include <boost/log/trivial.hpp>
 #include <boost/beast/core.hpp>
 #include <boost/beast/http.hpp>
 #include <boost/beast/version.hpp>
@@ -11,7 +12,6 @@
 #include <memory>
 
 #include "core.h"
-#include "logger.h"
 
 namespace ass {
 namespace ara {
@@ -281,8 +281,8 @@ int App::Run(const char* _host, unsigned short _port)
     }
     catch(const std::exception& e)
     {
-        //Logger::lognl("Invalid parameters: " + _host + " " + _port);
-        std::cerr << "Error: " << e.what() << std::endl;
+        BOOST_LOG_TRIVIAL(error)
+            << "Error: " << e.what() << std::endl;
     }
     catch(...)
     {
