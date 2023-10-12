@@ -1,2 +1,3 @@
-# Ara
-Framework for friendly, simple and efficient building of reliable microservices. 
+# Work in progress!
+# 🦜 Ara 🪶
+Framework for friendly, simple and efficient building of reliable microservices.
